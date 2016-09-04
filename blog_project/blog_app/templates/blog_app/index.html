@@ -1,0 +1,11 @@
+{% if latest_article_list %}
+	{% for article in latest_article_list %}
+		<p>
+			{{ article.pub_date }}<br>
+			<a href="posts/{{ article.id }}/">{{ article.title }}</a><br>
+			{{ article.cut }}
+		</p>
+	{% endfor %}
+{% else %}
+	<p>No posts yet.</p>
+{% endif %}
