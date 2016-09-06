@@ -3,7 +3,7 @@
 		<p>
 			{{ article.pub_date }}<br>
 			<a href="posts/{{ article.id }}/">{{ article.title }}</a><br>
-			{{ article.cut }}
+			{{ article.cut_html|safe }}
 		</p>
 	{% endfor %}
 {% else %}

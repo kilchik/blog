@@ -9,7 +9,7 @@ class TagsInline(admin.TabularInline):
 
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['title', 'cut', 'rest_text', 'pub_date']}),
+        (None, {'fields': ['title', 'cut_md', 'rest_text_md', 'pub_date']}),
     ]
     inlines = [TagsInline]
     list_display = ('title', '_get_tags', 'pub_date')
