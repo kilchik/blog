@@ -1,11 +1,16 @@
-{% if latest_article_list %}
-	{% for article in latest_article_list %}
-		<p>
-			{{ article.pub_date }}<br>
-			<a href="posts/{{ article.id }}/">{{ article.title }}</a><br>
-			{{ article.cut_html|safe }}
-		</p>
-	{% endfor %}
-{% else %}
-	<p>No posts yet.</p>
-{% endif %}
+{% extends 'blog_app/base.html' %}
+
+{% block content %}
+	{% if latest_article_list %}
+		{% for article in latest_article_list %}
+			<div class="blog-post">
+				<p class="blog-post-meta">{{ article.pub_date }}</p>
+				<h2 class="blog-post-title"><a href="posts/{{ article.id }}/">{{ article.title }}</a></h2>
+				<p>{{ article.cut_html|safe }}</p>
+				<hr>
+			</div><!-- /.blog-post -->
+		{% endfor %}
+	{% else %}
+		<p>No posts yet.</p>
+	{% endif %}
+{% endblock %}
