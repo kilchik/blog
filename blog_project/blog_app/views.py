@@ -13,4 +13,8 @@ def index(request):
 
 
 def detail(request, article_id):
-    return HttpResponse('This is the article number %s' % article_id)
+    template = loader.get_template('blog_app/detailed.html')
+    context = {
+        'article': Article.objects.get(id=article_id),
+    }
+    return HttpResponse(template.render(context, request))
